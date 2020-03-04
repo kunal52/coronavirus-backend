@@ -1,0 +1,13 @@
+server:
+  port: 7080
+spring:
+  application:
+    name: coronavirus-api
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: root
+    url: jdbc:mysql://localhost:3306/coronavirusdb
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
