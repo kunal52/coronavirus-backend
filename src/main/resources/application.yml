@@ -5,9 +5,9 @@ spring:
     name: coronavirus-api
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    password: root
-    url: jdbc:mysql://localhost:3306/coronavirusdb
-    username: root
+    password: uhHLmuw0i1Ke7I0F
+    url: jdbc:mysql://35.222.232.147:3306/coronavirusdb
+    username: coronavirus
   jpa:
     hibernate:
       ddl-auto: update
