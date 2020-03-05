@@ -1,5 +1,6 @@
 server:
   port: 7080
+
 spring:
   application:
     name: coronavirus-api
@@ -11,3 +12,6 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+
+
+

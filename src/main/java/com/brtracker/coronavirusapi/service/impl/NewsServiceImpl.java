@@ -34,7 +34,10 @@ public class NewsServiceImpl implements NewsService {
 
     @Override
     public List<ArticleDto> getNews(Pageable pageable) {
-        return objectMapperUtils.mapAll(articleRepository.findAll(pageable).get().collect(Collectors.toList()), ArticleDto.class);
+
+        List<ArticleEntity> articleEntities = articleRepository.findAll(pageable).get().collect(Collectors.toList());
+        return articleEntities.stream().map(this::mapEntityToDto).collect(Collectors.toList());
+
     }
 
     @Override
@@ -44,6 +47,12 @@ public class NewsServiceImpl implements NewsService {
         List<Article> articles = news.articles;
         List<ArticleEntity> articleEntities = objectMapperUtils.mapAll(articles, ArticleEntity.class);
         articleRepository.saveAll(articleEntities);
+    }
+
+    private ArticleDto mapEntityToDto(ArticleEntity articleEntity) {
+        ArticleDto articleDto = objectMapperUtils.map(articleEntity, ArticleDto.class);
+        articleDto.setSource(articleEntity.getSource().getName());
+        return articleDto;
     }
 
 
